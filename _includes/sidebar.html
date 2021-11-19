@@ -6,8 +6,8 @@
   </div>
   <ul class="nav">
     <!-- home -->
-    <li class="nav-item {% if page.layout == 'home' %}{{ 'active' }}{% endif %}">
-      <a href="/">
+    <li class="nav-item">
+      <a class="{% if page.layout == 'home' %}{{ 'active' }}{% endif %}" href="/">
         {% if site.mode == vertical %}
         <i class="svg-icon home"></i>
         {% endif %}
@@ -15,8 +15,8 @@
       </a>
     </li>
     {% for tab in site.tabs %}
-    <li class="nav-item {% if tab.url == page.url %}{{ 'active' }}{% endif %}">
-      <a href="{{ tab.url | relative_url }}">
+    <li class="nav-item ">
+      <a class="{% if tab.url == page.url %}{{ 'active' }}{% endif %}" href="{{ tab.url | relative_url }}">
         {% if site.mode == vertical %}
         <i class="svg-icon {% if tab.icon %}{{ tab.icon }}{% endif %}"></i>
         {% endif %}
