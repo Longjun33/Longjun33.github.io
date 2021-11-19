@@ -1,0 +1,96 @@
+---
+---
+
+//
+// IMPORTS
+//
+
+@import 'reset';
+@import 'variables';
+// Syntax highlighting @import is at the bottom of this file
+$body-h: 100vh;
+$body-w: 100vw;
+$foot-h: 4em;
+
+body {
+  background: $white;
+  font: 18px/1.4 $helvetica;
+  color: $darkGray;
+  height: $body-h;
+  width: $body-w;
+}
+
+a,
+a:link,
+a:visited,
+a:active,
+a:hover {
+  text-decoration: none;
+  color: $darkGray;
+}
+
+#head {
+  position: relative;
+  background-color: $white;
+  z-index: 999;
+  #sidebar {
+    height: 100%;
+  }
+}
+
+#main {
+  width: 100%;
+}
+
+#footer {
+  position: relative;
+  background-color: $white;
+  height: $foot-h;
+}
+
+//竖版
+.horizontal {
+  $head-h: 5em;
+  #head {
+    width: 100vw;
+    height: $head-h;
+    box-shadow: 2px 2px 5px $lightGray;
+  }
+  #main {
+    min-height: calc(100vh - (#{$foot-h} + #{$head-h}));
+  }
+}
+
+//横板
+.vertical {
+  #head {
+    width: 15em;
+    height: 100vh;
+    float: left;
+  }
+  #main {
+    min-height: calc(100vh - #{$foot-h});
+    width: calc(100vw - 15em);
+    float: right;
+  }
+  #footer {
+    width: calc(100vw - 15em);
+    float: right;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+@import 'include/sidebar';
+@import 'svg-icons';

@@ -1,0 +1,27 @@
+<!-- The SideBar -->
+
+<div id="sidebar" class="sidebar">
+  <div class="blogs-logo">
+    <img src="{{ site.avatar }}" alt="">
+  </div>
+  <ul class="nav">
+    <!-- home -->
+    <li class="nav-item {% if page.layout == 'home' %}{{ 'active' }}{% endif %}">
+      <a href="/">
+        {% if site.mode == vertical %}
+        <i class="svg-icon home"></i>
+        {% endif %}
+        home
+      </a>
+    </li>
+    {% for tab in site.tabs %}
+    <li class="nav-item {% if tab.url == page.url %}{{ 'active' }}{% endif %}">
+      <a href="{{ tab.url | relative_url }}">
+        {% if site.mode == vertical %}
+        <i class="svg-icon {% if tab.icon %}{{ tab.icon }}{% endif %}"></i>
+        {% endif %}
+        {{ tab.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
