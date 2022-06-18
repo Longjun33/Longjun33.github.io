@@ -1,53 +1,25 @@
-<!DOCTYPE html>
-<html>
+---
+layout: base
+---
 
-<head>
-  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+<div class="intro-header"></div>
 
-  {% include meta.html %}
-
-  <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-  <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}"
-    href="{{ site.baseurl }}/feed.xml" />
-
-  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
-</head>
-
-<body class="{{ site.mode }}">
-  <!-- <div class="wrapper-masthead">
-    <div class="container">
-      <header class="masthead clearfix">
-        <a href="{{ site.baseurl }}/" class="site-avatar">
-          <img src="{{ site.avatar }}" />
-        </a>
-
-        <div class="site-info">
-          <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-          <p class="site-description">{{ site.description }}</p>
-        </div>
-
-        <nav>
-          <a href="{{ site.baseurl }}/">Blog</a>
-          <a href="{{ site.baseurl }}/about">About</a>
-        </nav>
-      </header>
+<div role="main" class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">
+  {% if page.before-content %}
+    <div class="before-content">
+      {% for file in page.before-content %}
+        {% include {{ file }} %}
+      {% endfor %}
     </div>
-  </div> -->
+  {% endif %}
 
-  <div id="head" role="head" class="header w-100">
-    {% include sidebar.html %}
-  </div>
-  <div id="main" role="main" class="container">
-    {{ content }}
-  </div>
-  <div id="footer" role="footer" class="footer w-100">
+  {{ content }}
 
-  </div>
-  <!-- {% include analytics.html %} -->
-</body>
-
-</html>
+  {% if page.after-content %}
+    <div class="after-content">
+      {% for file in page.after-content %}
+        {% include {{ file }} %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
